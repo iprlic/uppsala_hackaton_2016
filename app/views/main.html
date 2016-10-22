@@ -1,8 +1,10 @@
-s<div class="mainDiv clearfix">
+<div class="mainDiv clearfix">
   <div class="mapDiv">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
   </div>
 
   <div class="listDiv">
+    <h1 class="mainTitle">Fire Drones</h1>
     <div class="drone" ng-repeat="drone in drones" ng-click="showDrone(drone)">
       <div class="name styles">
         <strong>{{drone.id}}</strong>
