@@ -34,4 +34,13 @@ angular.module('uppsalaHackaton2016App')
     	// show drone on map
     	console.log(drone);
     }
+
+    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+    // uiGmapGoogleMapApi is a promise.
+    // The "then" callback function provides the google.maps object.
+    uiGmapGoogleMapApi.then(function(maps) {
+
+    });
+
   });

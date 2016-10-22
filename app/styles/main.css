@@ -63,3 +63,12 @@ html, body {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
   }
+}
+
+
+/* Eyong  */
+.angular-google-map-container {
+  height: 400px;
+}
+
+/* End Eyong */
