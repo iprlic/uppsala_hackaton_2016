@@ -15,9 +15,18 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'uiGmapgoogle-maps'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
+    ['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
+        GoogleMapApiProviders.configure({
+            china: true
+        });
+    }]
+
+
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
