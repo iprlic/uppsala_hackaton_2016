@@ -44,7 +44,32 @@ angular.module('uppsalaHackaton2016App')
       center:
       { latitude: 45, longitude: -73 }, zoom: 8 };
 
-    // uiGmapGoogleMapApi is a promise.
+      $scope.options = {scrollwheel: false};
+      $scope.coordsUpdates = 0;
+      $scope.dynamicMoveCtr = 0;
+      $scope.marker = {
+          id: 0,
+
+          // TODO: The lat/lon for the selected drone should be passed here.
+          //	When locating the drone, how do we check if it is not out-of-bounds for our map?
+          //	We would need to recenter the map if out-of-bounds
+          coords: {
+              latitude: 40.1451,
+              longitude: -99.6680
+          },
+          options: { draggable: true,
+              icon: 'images/blue-drone-icon.png' },
+      };
+
+
+
+      // Not sure what the $wacthCollection does.
+      $scope.$watchCollection("marker.coords", function (newVal, oldVal) {
+          if (_.isEqual(newVal, oldVal))
+              return;
+          $scope.coordsUpdates++;
+      });
+      // uiGmapGoogleMapApi is a promise.
     // The "then" callback function provides the google.maps object.
     uiGmapGoogleMapApi.then(function(maps) {
 
