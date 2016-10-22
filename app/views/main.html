@@ -1,15 +1,15 @@
 <div class="mainDiv clearfix">
   <div class="mapDiv">
-    <img src="images/mapholder.png" id="mapimage">
   </div>
 
   <div class="listDiv">
     <div class="drone" ng-repeat="drone in drones" ng-click="showDrone(drone)">
-      <div>
+      <div class="name styles">
         <strong>{{drone.id}}</strong>
       </div>
-      <div>
-        Position: {{drone.posX}}, {{drone.posY}}
+      <div class="position styles">
+        <p>Position: {{drone.posX}}, {{drone.posY}}</p>
+        <p>Area:</p>
       </div>
     </div>
   </div>
