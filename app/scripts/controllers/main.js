@@ -8,7 +8,7 @@
  * Controller of the uppsalaHackaton2016App
  */
 angular.module('uppsalaHackaton2016App')
-  .controller('MainCtrl', function ($scope, uiGmapGoogleMapApi) {
+  .controller('MainCtrl', function ($scope, uiGmapGoogleMapApi,  $log, $timeout) {
     $scope.drones = [
     	{
     		'id': 'Drone1',
@@ -36,30 +36,28 @@ angular.module('uppsalaHackaton2016App')
 
       $scope.map.center.latitude = drone.posX;
       $scope.map.center.longitude = drone.posY;
-
-
+      $scope.marker.coords.latitude = drone.posX;
+      $scope.marker.coords.longitude = drone.posY;
     }
 
     $scope.map = {
       center:
       { latitude: 45, longitude: -73 }, zoom: 8 };
 
-      $scope.options = {scrollwheel: false};
-      $scope.coordsUpdates = 0;
-      $scope.dynamicMoveCtr = 0;
-      $scope.marker = {
-          id: 0,
+	  $scope.options = {scrollwheel: false};
+	  $scope.coordsUpdates = 0;
+	  $scope.dynamicMoveCtr = 0;
+	  $scope.marker = {
+	      id: 0,
 
-          // TODO: The lat/lon for the selected drone should be passed here.
-          //	When locating the drone, how do we check if it is not out-of-bounds for our map?
-          //	We would need to recenter the map if out-of-bounds
-          coords: {
-              latitude: 40.1451,
-              longitude: -99.6680
-          },
-          options: { draggable: true,
-              icon: 'images/blue-drone-icon.png' },
-      };
+
+	      coords: {
+	          latitude: 45,
+	          longitude: -73
+	      },
+	      options: { draggable: true,
+	          icon: 'images/blue-drone-icon.png' },
+	  };
 
 
 
